@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wesołych Świąt, babciu!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Snowfall Container -->
+    <div class="snowflakes" aria-hidden="true"></div>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <header>
+            <h1 class="title">Wesołych Świąt, babciu!</h1>
+        </header>
+        
+        <main>
+            <!-- Christmas Present -->
+            <div class="present-container">
+                <div class="present" id="present">
+                    <div class="present-top">
+                        <div class="present-bow">
+                            <div class="bow-center"></div>
+                            <div class="bow-loop bow-left"></div>
+                            <div class="bow-loop bow-right"></div>
+                        </div>
+                    </div>
+                    <div class="present-bottom"></div>
+                </div>
+            </div>
+            
+            <!-- Present Content (hidden until present is clicked) -->
+            <div class="present-content" id="presentContent">
+                <div class="photos-container">
+                    <div class="photo-frame photo-left">
+                        <div class="photo"></div>
+                        <div class="photo-label">Ty</div>
+                    </div>
+                    
+                    <div class="plus-sign">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    
+                    <div class="photo-frame photo-right">
+                        <div class="photo"></div>
+                        <div class="photo-label">Ja</div>
+                    </div>
+                </div>
+                
+                <div class="message">
+                    <h2><i class="fas fa-heart"></i> Dla mojej wspaniałej babci: <i class="fas fa-heart"></i></h2>
+                    <p class="love-message">Babciu, jesteś wspaniała i silna. Jesteś niezwykle ważną częścią naszej rodziny i kochamy Cię bardziej niż cokolwiek innego na świecie!! Życzę Ci wesołych świąt!</p>
+                    <div class="signature">Z całą moją miłością,<br>Natan!</div>
+                </div>
+                
+                <!-- Clickable Heart -->
+                <div class="heart-container">
+                    <div class="heart" id="heart">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <!-- Click indicator with arrow -->
+                    <div class="click-indicator" id="clickIndicator">
+                        <div class="arrow-container">
+                            <div class="arrow"></div>
+                        </div>
+                        <span class="click-text">Kliknij mnie!</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Wykonane z<i class="fas fa-heart"></i>dla najlepszej babci na świecie</p>
+        </footer>
+    </div>
+    
+    <!-- Heart Message Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-header">
+                <h2><i class="fas fa-star"></i>Specjalna wiadomość dla babci.<i class="fas fa-star"></i></h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text">Moja ukochana babcia,</p>
+                <p class="modal-text">W te święta Bożego Narodzenia chcę, żebyś wiedziała, jak wiele dla mnie znaczysz. Twoja dobroć, mądrość i bezgraniczna miłość ukształtowały mnie taką, jaka jestem dzisiaj. Każde wspomnienie z tobą to skarb, który noszę głęboko w sercu.</p>
+                <p class="modal-text">Niech ten świąteczny czas przyniesie Ci tyle radości, ile Ty wniosłaś do naszego życia. Jesteś nie tylko moją babcią, ale też moją przyjaciółką, powierniczką i jedną z moich ulubionych osób na całym świecie.</p>
+                <p class="modal-text">Życzę Wam Świąt Bożego Narodzenia pełnych ciepła, śmiechu i miłości, w otoczeniu bliskich, którzy Was kochają.</p>
+                <p class="modal-text">Zawsze z całą moją miłością,</p>
+                <p class="modal-signature">Twój kochający wnuk!!</p>
+                <div class="modal-heart">
+                    <i class="fas fa-heart"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

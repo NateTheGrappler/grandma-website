@@ -1,0 +1,613 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background: #1a2b3c;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Snowfall Animation */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.snowflake {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 3.2rem;
+    color: #e74c3c;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+/* Present Styles */
+.present-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.present {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    margin-bottom: 20px;
+}
+
+.present:hover {
+    transform: scale(1.05);
+}
+
+.present-top {
+    width: 100%;
+    height: 60%;
+    background: #e74c3c;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.present-bottom {
+    width: 100%;
+    height: 40%;
+    background: #2ecc71;
+    border-radius: 0 0 8px 8px;
+}
+
+.present-bow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 60px;
+}
+
+.bow-center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: #f1c40f;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.bow-loop {
+    position: absolute;
+    top: 5px;
+    width: 50px;
+    height: 40px;
+    background: #f1c40f;
+    border-radius: 50%;
+}
+
+.bow-left {
+    left: 0;
+    transform: rotate(-30deg);
+}
+
+.bow-right {
+    right: 0;
+    transform: rotate(30deg);
+}
+
+/* Present Content (Hidden Initially) */
+.present-content {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+    animation: fadeIn 0.8s ease;
+    flex-grow: 1;
+    justify-content: center;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Photos Container */
+.photos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 800px;
+    gap: 40px;
+}
+
+.photo-frame {
+    width: 280px;
+    height: 280px;
+    background: #ffffff;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #f1c40f;
+}
+
+.photo-left .photo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%), 
+                url('images/grandma.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-right .photo {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.1) 0%, rgba(231, 76, 60, 0.1) 100%), 
+                url('images/me.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.photo-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Plus Sign */
+.plus-sign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #e74c3c;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.plus-sign i {
+    color: #ffffff;
+}
+
+.message {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 600px;
+    text-align: center;
+    margin-bottom: 40px;
+    border: 2px solid rgba(241, 196, 15, 0.2);
+}
+
+.message h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #f1c40f;
+    margin-bottom: 25px;
+}
+
+.message h2 i {
+    margin: 0 10px;
+    color: #e74c3c;
+}
+
+.love-message {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #ecf0f1;
+    font-style: italic;
+}
+
+.signature {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.4rem;
+    color: #f1c40f;
+    font-weight: 600;
+    margin-top: 25px;
+}
+
+/* Heart Container */
+.heart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.heart {
+    width: 80px;
+    height: 80px;
+    background: #e74c3c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: heartbeat 1.5s infinite;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+}
+
+.heart i {
+    font-size: 2.5rem;
+    color: white;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    5% { transform: scale(1.1); }
+    10% { transform: scale(1); }
+    15% { transform: scale(1.1); }
+    20% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+/* Click Indicator Styles */
+.click-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
+}
+
+.arrow-container {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.arrow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 20px solid #f1c40f;
+    animation: arrowBounce 1.5s infinite;
+}
+
+.click-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #f1c40f;
+    font-weight: 600;
+    background: rgba(241, 196, 15, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes arrowBounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: auto;
+}
+
+footer p {
+    font-size: 1rem;
+    color: #ecf0f1;
+}
+
+footer p i {
+    color: #e74c3c;
+    margin: 0 5px;
+}
+
+/* Modal Styles - Red Theme */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal {
+    background: #c0392b;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 12px;
+    padding: 30px;
+    position: relative;
+    border: 3px solid #f1c40f;
+    animation: modalAppear 0.4s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.modal-close:hover {
+    background: #1a252f;
+    transform: rotate(90deg);
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(241, 196, 15, 0.3);
+}
+
+.modal-header h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.modal-header h2 i {
+    margin: 0 10px;
+    color: #f1c40f;
+}
+
+.modal-body {
+    padding: 10px;
+}
+
+.modal-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    color: #ffffff;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.modal-signature {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    color: #f1c40f;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.modal-heart {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.modal-heart i {
+    font-size: 2.8rem;
+    color: #f1c40f;
+    animation: heartbeat 1.5s infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .photos-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .plus-sign {
+        transform: rotate(90deg);
+        width: 50px;
+        height: 50px;
+    }
+    
+    .photo-frame {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.4rem;
+    }
+    
+    .present {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .message h2 {
+        font-size: 1.6rem;
+    }
+    
+    .love-message {
+        font-size: 1.2rem;
+    }
+    
+    .click-text {
+        font-size: 1rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.6rem;
+    }
+    
+    .modal-text {
+        font-size: 1.1rem;
+    }
+    
+    .modal {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+    
+    .present {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .photo-frame {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .message {
+        padding: 20px;
+    }
+    
+    .click-text {
+        font-size: 0.9rem;
+    }
+    
+    .arrow-container {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .arrow {
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 16px solid #f1c40f;
+    }
+}
